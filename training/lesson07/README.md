@@ -8,13 +8,13 @@ In order to understand this lesson properly, a set of steps have been designed t
 
 ## Steps 
 
--   Create an inventory file named "inventory" with a group named "myinstance" and your internal instance IP assigned included
--   Create a playbook named "facts-playbook.yml" using "myinstance" as a hosts parameter and ``<studentxx>`` as a user. The playbook should use tasks to ensure that the following conditions are met on the managed hosts:
+-   Create an inventory file named "inventory" with a group named "myinstance" and include localhost
+-   Create a playbook named "facts-playbook.yml" using "myinstance" as a hosts parameter. The playbook should use tasks to ensure that the following conditions are met on the managed hosts:
     - Create a folder /named "etc/ansible/facts.d"
     - Create a custom facts "/etc/ansible/facts.d/custom.fact" file with a variable named "haproxy_ip" which includes instance ip
     - Print local facts "haproxy_ip"
-    - Create a new variable named "life_variable" with date content
-    - Print variable "life_variable"
+    - Create a new variable named "live_variable" with date content
+    - Print variable "live_variable"
 -   Before running your playbook, run the ansible-playbook --syntax-check  command to verify that its syntax is correct
 -   Run the playbook!
 

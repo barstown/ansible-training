@@ -1,2 +1,2 @@
 [myinstance]
-student15 ansible_host=172.31.1.84
+localhost

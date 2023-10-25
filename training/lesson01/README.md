@@ -14,7 +14,7 @@ In order to understand this lesson properly, a set of steps have been designed t
 
 For more information, please visit:
 
--   https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-the-control-node.
+-   https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#selecting-an-ansible-package-and-version-to-install.
 
 License
 -------

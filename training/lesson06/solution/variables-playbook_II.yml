@@ -3,27 +3,29 @@
 ##
 
 ---
-- hosts: myinstance
+- name: Testing variables
+  hosts: myinstance
   become: true
-  user: studentxx
+
   vars_files:
     - vars/vars.yml
+
   tasks:
     - name: Print test_string variable
-      debug:
+      ansible.builtin.debug:
         var: test_string
     - name: Print test_array variable
-      debug:
+      ansible.builtin.debug:
         var: test_array
     - name: Print test_dic variable
-      debug:
+      ansible.builtin.debug:
         var: test_dic
     - name: Print the list of sources used as inventory
-      debug:
+      ansible.builtin.debug:
         var: ansible_inventory_sources
     - name: Print the connection plugin actually used for the task on the target host
-      debug:
+      ansible.builtin.debug:
         var: ansible_connection
     - name: Print Ansible facts
-      debug:
+      ansible.builtin.debug:
         var: ansible_facts

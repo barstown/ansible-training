@@ -1,0 +1,28 @@
+##
+# Example: ansible-playbook -i inventory templates-playbook.yml -k -K
+##
+
+---
+- name: Learning Ansible Templating
+  hosts: myinstance
+  become: false
+
+  vars:
+    file_contents: "hello world!"
+
+  tasks:
+    - name: Copy Apache config file
+      ansible.builtin.template:
+        src: file.txt.j2
+        dest: "{{ ansible_env.HOME }}/file.txt"
+        mode: '0644'
+
+    - name: Display the contents of file.txt to standard output
+      ansible.builtin.command:
+        cmd: cat "{{ ansible_env.HOME }}/file.txt"
+      register: file_contents
+      changed_when: false
+
+    - name: Print file contents
+      ansible.builtin.debug:
+        msg: "{{ file_contents.stdout }}"

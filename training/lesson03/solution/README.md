@@ -4,31 +4,31 @@
 ## Print "It is working" message on localhost
 
 ```
-$ ansible localhost -c local -m debug -a 'msg="It is working"'
+$ ansible localhost -m debug -a 'msg="It is working"'
 ```
 
 ## Print instance settings on localhost
 
 ```
-$ ansible localhost -c local -m setup
+$ ansible localhost -m setup
 ```
 
 ## Create a new user "yourname" on localhost using become (root)
 
 ```
-$ ansible localhost -c local -m user -a "name=yourname" -b -K
+$ ansible localhost -m user -a "name=yourname" -b -K
 ```
 
 ## Include the new user "yourname" on **wheel** group on localhost using become (root)
 
 ```
-$ ansible localhost -c local -m user -a "name=yourname groups=wheel" -b -K
+$ ansible localhost -m user -a "name=yourname groups=wheel" -b -K
 ```
 
 ## Copy file **/etc/passwd** on localhost using user "yourname" and setting permissions 440 and owner root in **/tmp/newfile**
 
 ```
-$ ansible localhost -c local -m copy -a "src=/etc/passwd dest=/tmp/newfile owner=root mode=0440" -b --become-user=yourname -K
+$ ansible localhost -m copy -a "src=/etc/passwd dest=/tmp/newfile owner=root mode=0440" -b --become-user=yourname -K
 ```
 When setting permissions using octal notation in Ansible modules take the following into account:
 

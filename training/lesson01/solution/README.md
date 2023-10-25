@@ -4,18 +4,26 @@
 
 Latest Release via DNF or Yum
 
--   On RHEL7:
+-   On Ubuntu 22.04LTS:
 
 ```
-$ sudo subscription-manager repos --enable rhel-7-server-ansible-2.9-rpms
-$ sudo yum install ansible
+$ sudo apt install python3-pip pipx
+$ pipx install ansible-core
+$ pipx install ansible-lint
+$ pipx install ansible-navigator
 ```
 
--   On RHEL8:
+-   On RHEL8/9:
 
 ```
-$ sudo subscription-manager repos --enable ansible-2.9-for-rhel-8-x86_64-rpms
 $ sudo dnf install ansible
+``````
+OR
+```
+sudo dnf install python3-pip pipx
+$ pipx install ansible-core
+$ pipx install ansible-lint
+$ pipx install ansible-navigator
 ```
 
 License

@@ -3,17 +3,19 @@
 ##
 
 ---
-- hosts: myinstance
+- name: Learning Ansible Vault
+  hosts: myinstance
   become: true
-  user: studentxx
+
   vars_files:
     - vars/vault-vars.yml
+
   tasks:
     - name: Generate password hash sha512
-      set_fact:
+      ansible.builtin.set_fact:
         new_hash_pass: "{{ new_user_pass | password_hash('sha512', new_user_secret ) }}"
 
     - name: Create user
-      user:
+      ansible.builtin.user:
         name: "{{ new_user_name }}"
         password: "{{ new_hash_pass }}"

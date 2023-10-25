@@ -4,7 +4,7 @@ Red Hat Ansible Training
 Introduction 
 --------------
 
-Red Hat Ansible Training tries to give a general overview about Red Hat Ansible Engine and Red Hat Ansible Tower solutions, covering the most important concepts and elements inside these automation tools.
+Red Hat Ansible Training tries to give a general overview about Red Hat Ansible Automation Platform and Red Hat Ansible Automation Controller solutions, covering the most important concepts and elements inside these automation tools.
 
 To support this objective, a set of practical laboratories have been included in this training in order to explore each point deeply and assist the student learning process to internalizing best practices and key concepts.
 
@@ -13,64 +13,53 @@ Folder Structure
 
 A folder structure is provided in this repository in order to split laboratory content and improve the clarity of the training. The following folders have been included with a specific objective:
 
--   aws -> Includes AWS environment's set up automatism in order to deploy and destroy Red Hat Ansible's laboratory environments.
 -   iac_tower -> Includes Red Hat Ansible Tower configuration as a code. 
 -   examples -> Includes son Ansible playbooks and roles which could be useful in a future steps.
 -   training -> Lessons structure which includes Red Hat Ansible Engine's specific exercises with solutions.
 -   training_microsoft -> Lessons structure which includes specific Red Hat Ansible Tower's exercises focus on Azure environment and Microsoft Servers administration.
--   training_tower -> Lessons structure which includes specific Red Hat Ansible Tower's exercises with solutions.
-
 
 Laboratory Environment
 ------------------------
 
-Amazon Web Services (AWS) is a subsidiary of Amazon that provides on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis.
+This lab is intended to be run in a local Vagrant machine. There may be
+assumptions that you are running this on Ubuntu 22.04LTS so be mindful of the
+some steps that include package names and some modules or commands. Largely
+this should translate to other distributions as well.
 
-As you might know, Red Hat Ansible's community supports several AWS modules which allow final customers to define and deploy multiples computing resources in this provider. In that way, this training makes use of these modules to deploy and destroy the environment dynamically based on number of users and resources.
+These instructions will not guide yout through the installation of Vagrant and
+any supported providers. This assumes you already have this set up.
 
-This laboratory creates a complete environment which is ready to install an Red Hat Ansible Engine and Red Hat Ansible Tower. On the other hand, it also supports the implementation of proposed lessons in this training. 
+First you need to start your Vagrant machine and connect to it:
 
-The following list includes a summary about this environment:
-
--   30 instances for students
--   1 instance designed to support some Ansible Core's lessons
--   4 instances for install an Ansible Tower cluster 
-
-In order to deploy this environment and make it available to execute training's lessons, it is necessary to follow the next steps: 
-
+- Start Vagrant machine
 ```
-$ cd aws
+$ cd ~/vagrant/ubuntu && vagrant up
 ```
 
--   Deploy Red Hat Ansible Training Environment
+- Set up a Vagrant VM using Ubuntu 22.04LTS
 ```
-$ ansible-playbook aws-iac.yaml
-```
-
--   Configure Red Hat Ansible Training Environment
-```
-$ ansible-playbook aws-context-rhel-environment.yaml --ask-vault-pass
+$ mkdir -p ~/vagrant/ubuntu && cd ~/vagrant/ubuntu
 ```
 
--   Obtain Red Hat Ansible Training Environment inventory
+- Initialize the Vagrant VM, if you have not done so already
 ```
-$ ansible-playbook aws-generate-inventory.yaml
-```
-
-Once the training is completed:
-
--   Destroy Red Hat Ansible Training Environment
-```
-$ ansible-playbook aws-iac-destroy.yaml 
+$ vagrant init generic/ubuntu2204
 ```
 
+- Start your Vagrant VM
+```
+$ vagrant up
+```
 
----
-**NOTE**
+- Connect to your Vagrant VM
+```
+$ vagrant ssh
+```
 
-Red Hat Automation Platform & Microsoft Training is based on Azure Environment which has to be deployed and configured previously. For this reason, it is not required to deploy the AWS environment. 
-
----
+- Clone this repository, if you haven't already
+```
+$ mkdir -p ~/git && cd ~/git && git clone https://github.com/barstown/ansible-training
+```
 
 Red Hat Ansible Engine Lessons
 ---------

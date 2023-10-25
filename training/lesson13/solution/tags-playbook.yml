@@ -1,30 +1,41 @@
 ##
-# Example: ansible-playbook -i inventory playbook.yml -k -K
+# Example: ansible-playbook -i inventory tags-playbook.yml -k -K
 ##
 
 ---
-- name: Testing modules on localhost in our first playbook
+- name: Learning Ansible Tags
   hosts: myinstance
   become: true
+
   tasks:
     - name: Print message
       ansible.builtin.debug:
         msg: "It is working"
+      tags:
+        - debug
 
     - name: Print setup properties
       ansible.builtin.setup:
+      tags:
+        - debug
 
     - name: Create user
       ansible.builtin.user:
         name: testplay01
+      tags:
+        - user
 
     - name: Install package http
       ansible.builtin.package:
-        name: apache2
+        name: httpd
         state: present
+      tags:
+        - apache
 
     - name: Enable and Up httpd
       ansible.builtin.service:
-        name: apache2
+        name: httpd
         state: started
         enabled: true
+      tags:
+        - apache

@@ -8,15 +8,15 @@ In order to understand this lesson properly, a set of steps have been designed t
 
 ## Steps 
 
--   Create an inventory file named "inventory" with a group named "myinstance" and your internal instance IP assigned included
--   Create a playbook named playbook.yml, using "myinstance" as a hosts parameter and ``<studentxx>`` as a user. The playbook should use tasks to ensure that the following conditions are met on the managed hosts:
+-   Create an inventory file named "inventory" with a group named "myinstance" and include localhost
+-   Create a playbook named playbook.yml, using "myinstance" as a hosts parameter. The playbook should use tasks to ensure that the following conditions are met on the managed hosts:
     -   Print "It is working" message on group "myinstance"
     -   Print instance settings on group "myinstance"
     -   Create a new user "testplay01" on group "myinstance" using become (root)
-    -   Install package "httpd" on group "myinstance" using become (root)
+    -   Install package "apache2" (or "httpd" on RedHat) on group "myinstance" using become (root)
     -   Enable and up "httpd" service on group "myinstance" using become (root)
 -   Before running your playbook, run the ansible-playbook --syntax-check  command to verify that its syntax is correct
--   Run the playbook and verify results via curl http://localhost
+-   Run the playbook and verify results `sudo systemctl status apache2`
 
 ## Useful Links
 

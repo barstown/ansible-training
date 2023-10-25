@@ -3,32 +3,38 @@
 ##
 
 ---
-- hosts: myinstance
+- name: Using Ansible Facts
+  hosts: myinstance
   become: true
-  user: studentxx
+
   vars_files:
     - vars/vars.yml
+
   tasks:
-    - name: "Create custom fact directory"
-      file:
+    - name: Create custom fact directory
+      ansible.builtin.file:
         path: "/etc/ansible/facts.d"
         state: directory
- 
+        owner: root
+        group: root
+        mode: '0644'
+
     - name: Creating facts file
-      ini_file:
+      community.general.ini_file:
         path: /etc/ansible/facts.d/custom.fact
         section: haproxy
         option: haproxy_ip
         value: 192.168.123.123
-    
+        mode: '0644'
+
     - name: Print haproxy_ip
-      debug:
+      ansible.builtin.debug:
         var: ansible_local.custom.haproxy.haproxy_ip
 
     - name: Create a new variable with date
-      set_fact:
-        life_variable: "{{ ansible_date_time }}"
+      ansible.builtin.set_fact:
+        live_variable: "{{ ansible_date_time }}"
 
     - name: Print life_variable
-      debug:
-        var: life_variable
+      ansible.builtin.debug:
+        var: live_variable

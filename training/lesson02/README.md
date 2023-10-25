@@ -10,17 +10,17 @@ In order to understand this lesson properly, a set of steps have been designed t
 
 - Create an ansible configuration file in order to implement the following settings:
     * Get Current Ansible configuration
-    * Enable auto-accept Hosts Keys
+    * Disable Hosts Key Checking
     * Define an Ansible log file
-    * Change standard stdout callback
+    * Change standard stdout callback to yaml
     * Modify default inventory file
 
 ## Useful Links
 
 For more information, please visit:
 
+-   https://docs.ansible.com/ansible/latest/installation_guide/intro_configuration.html#getting-the-latest-configuration
 -   https://docs.ansible.com/ansible/latest/cli/ansible-config.html
--   https://raw.githubusercontent.com/ansible/ansible/devel/examples/ansible.cfg
 
 License
 -------

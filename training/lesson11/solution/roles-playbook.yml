@@ -1,0 +1,11 @@
+##
+# Example: ansible-playbook -i inventory roles-playbook.yml -k -K
+##
+
+---
+- name: Using an Ansible Role
+  hosts: myinstance
+  become: true
+
+  roles:
+    - role: database

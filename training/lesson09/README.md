@@ -1,38 +1,27 @@
 # Ansible Conditionals, loops and delegation
 
-Ansible complex variables (array and dictionaries) are very important in Ansible but it is important to manage/use them as well. On the other hand, Ansible allows to delegate tasks execution to Ansible "slaves". 
+Ansible complex variables (array and dictionaries) are very important in Ansible but it is important to manage/use them as well. 
 
-This lesson dives in conditionals, loops and delegation aspects.
+This lesson dives in conditionals and loops.
 
 In order to understand this lesson properly, a set of steps have been designed to be implemented in the following section.
 
 **ENJOY !!!**
 
-## Resources
-
-In order to assist this laboratory implementation, a set of resources have been added:
-
--   usertable.mysql (MySQL script to create usernames table)
-
 ## Steps 
 
--   Create an inventory file named "inventory" with a group named "myinstance" and your internal instance IP assigned included
--   Create a playbook named "tools-playbook.yml" using "myinstance" as a hosts parameter and ``<studentxx>`` as a user. The playbook should use tasks to ensure that the following conditions are met on the managed hosts:
+-   Create an inventory file named "inventory" with a group named "myinstance" and include localhost
+-   Create a playbook named "tools-playbook.yml" using "myinstance" as a hosts parameter. The playbook should use tasks to ensure that the following conditions are met on the managed hosts:
     -   Define the following variables:
-        -   User name variable named "mysql_user" with value "testuser01"
-        -   User pass variable named "mysql_pass" with value "password01"
-        -   List or array of database names variable named "mysql_db" with values "testdb01" and "testdb02"
-        -   Client IP variable named "mysql_client_ip" with value <ip_classroom_instance>
-        -   List or Array of packages named "mysql_packages" with "mysql-server" and "python3-PyMySQL" included
-    -   Install the list of packages
-    -   Start mysqld service if installation packages has changed 
-    -   Restart mysqld service if installation packages has not changed
-    -   Create two new mysql databases using "mysql_db" variable
-    -   Create a new user using "mysql_name" and "mysql_pass" variables with read/write rights to "mysql_db" databases from host "mysql_client_ip"
-    -   Import "usertable.mysql" table file into both "mysql_db" databases delegating the operation to <mysql_client_ip> instance 
+        -   List or array of package names variable named "package" with values "lighttpd" and "fzf"
+        -   List or Array of packages named "more_packages" with "fd-find" and "ncdu" included
+    -   Install the list of "packages" and Notify the "Start lighttpd" handler 
+    -   Restart lighttpd service if installation packages has not changed
+    -   Install the list of "more_packages" using a loop
+    -   Create a handler to start lighttpd and enable it if installation packages has changed
 -   Before running your playbook, run the ansible-playbook --syntax-check  command to verify that its syntax is correct
 -   Run the playbook!
--   Test the database
+-   Ensure lighttpd is running using `sudo systemctl status lighttpd`
 
 ## Useful Links
 
