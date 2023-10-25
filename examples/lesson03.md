@@ -1,0 +1,6 @@
+- When running an adhoc command, the inventory specified after `ansible` is the group or inventory name typically.
+  - Example: `ansible all -m setup`
+  - How would we limit this adhoc command to a single host inside of that group?
+- Guesses on what the -m stands for?
+- Explain what the -b and -K flags stand for?
+- 

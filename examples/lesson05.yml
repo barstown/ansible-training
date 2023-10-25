@@ -1,0 +1,26 @@
+---
+- name: Spot the issues
+  hosts: webservers
+  become: true
+  
+  tasks:
+    - name: Print message
+      debug:
+        msg: "It is working"
+
+    - ansible.builtin.setup:
+
+    - name: Create user
+      ansible.builtin.user:
+        name: testplay01
+
+    - name: Install package http
+      ansible.builtin.package:
+        name: apache2
+
+    - name: Enable and Up httpd
+      service:
+        name: apachee2
+        state: started
+        enabled: true
+        

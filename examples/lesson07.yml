@@ -1,9 +1,5 @@
-##
-# Example: ansible-playbook -i inventory facts-playbook.yml -k -K
-##
-
 ---
-- name: Using Ansible Facts
+- name: Use cases?
   hosts: myinstance
   become: true
 
@@ -16,6 +12,7 @@
         group: root
         mode: '0644'
 
+    # Why might we want to create a custom facts file on each host?
     - name: Creating facts file
       community.general.ini_file:
         path: /etc/ansible/facts.d/custom.fact
@@ -24,10 +21,12 @@
         value: 192.168.123.123
         mode: '0644'
 
+    # Decipher how this variable works, in releation to the custom fact above.
     - name: Print haproxy_ip
       ansible.builtin.debug:
         var: ansible_local.custom.haproxy.haproxy_ip
 
+    # Why might we set a fact in the middle of a task like this instead of including it in a var file?
     - name: Create a new variable with date
       ansible.builtin.set_fact:
         live_variable: "{{ ansible_date_time }}"

@@ -1,0 +1,16 @@
+---
+- name: What's the difference?
+  hosts: localhost
+  become: false
+
+  vars:
+    foo: "bar"
+
+  tasks:
+    - name: Print foo variable
+      ansible.builtin.debug:
+        msg: "{{ foo }}"
+
+    - name: Print foo variable
+      ansible.builtin.debug:
+        var: foo
