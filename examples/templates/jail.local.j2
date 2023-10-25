@@ -1,0 +1,29 @@
+{ ansible_managed | comment }
+
+# Common config
+[sshd]
+enabled = {{ security_fail2ban_sshd_enabled | default('true') }}
+port    = {{ security_ssh_port | default('22') }}
+filter  = sshd
+
+# Group var config generated from security_group_fail2ban
+{% for item in security_group_fail2ban | default({}) %}
+[{{ item.name }}]
+enabled = {{ itme.enabled }}
+port    = {{ item.port }}
+filter  = {{ item.filter }}
+{% if item.logpath is defined %}
+logpath = {{ item.logpath }}
+{% endif %}
+{% endfor %}
+
+# Host var config granted from security_host_fail2ban
+{% for item in security_host_fail2ban | default({}) %}
+[{{ item.name }}]
+enabled = {{ item.enabled }}
+port    = {{ item.port }}
+filter  = {{ item.filter }}
+{% if item.logpath is defined %}
+logpath = {{ item.logpath }}
+{% endif %}
+{% endfor %}

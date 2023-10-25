@@ -14,7 +14,7 @@ Folder Structure
 A folder structure is provided in this repository in order to split laboratory content and improve the clarity of the training. The following folders have been included with a specific objective:
 
 -   iac_tower -> Includes Red Hat Ansible Tower configuration as a code. 
--   examples -> Includes son Ansible playbooks and roles which could be useful in a future steps.
+-   examples -> Includes some Ansible playbooks and roles which will be used for troubleshooting and sanity-checks.
 -   training -> Lessons structure which includes Red Hat Ansible Engine's specific exercises with solutions.
 -   training_microsoft -> Lessons structure which includes specific Red Hat Ansible Tower's exercises focus on Azure environment and Microsoft Servers administration.
 
@@ -74,13 +74,11 @@ Training folder includes The following list includes a lessons summary:
 -   [**Lesson 6**](./training/lesson06/README.md) - Ansible Variable
 -   [**Lesson 7**](./training/lesson07/README.md) - Ansible Facts
 -   [**Lesson 8**](./training/lesson08/README.md) - Ansible Vault
--   [**Lesson 9**](./training/lesson09/README.md) - Ansible Conditionals, loops and delegation
--   [**Lesson 10**](./training/lesson10/README.md) - Ansible Handlers
--   [**Lesson 11**](./training/lesson11/README.md) - Ansible Templates
--   [**Lesson 12**](./training/lesson12/README.md) - Ansible Roles
--   [**Lesson 13**](./training/lesson13/README.md) - Ansible Filters
--   [**Lesson 14**](./training/lesson14/README.md) - Ansible Modules
--   [**Lesson 15**](./training/lesson15/README.md) - Ansible Lookups, Callbacks & Tags
+-   [**Lesson 9**](./training/lesson09/README.md) - Ansible Conditionals, loops and handlers
+-   [**Lesson 10**](./training/lesson10/README.md) - Ansible Templates
+-   [**Lesson 11**](./training/lesson11/README.md) - Ansible Roles
+-   [**Lesson 12**](./training/lesson12/README.md) - Ansible Filters
+-   [**Lesson 13**](./training/lesson13/README.md) - Ansible Lookups, Callbacks & Tags
 
 Red Hat Ansible Tower Lessons
 ---------
