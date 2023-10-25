@@ -8,12 +8,12 @@
   become: true
 
   vars:
-    - packages:
-        - lighttpd
-        - fzf
-    - more_packages:
-        - ncdu
-        - fd-find
+    packages:
+      - lighttpd
+      - fzf
+    more_packages:
+      - ncdu
+      - fd-find
 
   tasks:
     - name: Install Packages

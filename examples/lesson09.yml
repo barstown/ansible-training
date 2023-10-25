@@ -1,0 +1,22 @@
+---
+- name: Efficiency and errors
+  hosts: localhost
+  become: true
+
+  vars:
+    - packages:
+        - lighttpd
+        - fzf
+
+  tasks:
+    # What's the difference here?
+    - name: Install Packages
+      ansible.builtin.package:
+        name: "{{ packages }}"
+        state: present
+
+    - name: Install More Packages
+      ansible.builtin.package:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ packages }}"
